@@ -59,7 +59,7 @@ function Circle(x,y,dx,dy,radius){
         if (this.radius >=2 ){
         this.radius-=2;}
         }
-    
+            
         //move the circle dx pixel(s) to the right or left every frame refresh based on whether dx is postive or negative
         this.x += this.dx;
     
@@ -99,7 +99,7 @@ for (var i=0; i<150;i++){
     var chromeScrollBarWidth = 17;
     
     //random radius within a specified range
-    var radius = Math.random() * 15;
+    var radius = Math.random() * 60;
     
     //random x position within the browser window including a Chrome scroll bar on the right of the screen
     var x = Math.random() * (canvas.width- (radius*2 + chromeScrollBarWidth))+ radius;
