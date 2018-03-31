@@ -14,8 +14,8 @@ canvas.width = window.innerWidth;
 function Circle(x,y,dx,dy,radius){
     
     //color property set with a randomized color value and an alpha value of .5
-    this.color = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${.5})`
-    // this.color = "rgba(255,255,255,.5)";
+    this.color = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${.5})`
+   
     // x location property
     this.x  = x;
     
@@ -73,22 +73,6 @@ function Circle(x,y,dx,dy,radius){
     
 }
 
-
-
-// //set a random value of the 
-// var x = Math.random() * canvas.height;
-// var y = Math.random() * canvas.width;
-
-
-// //width of the Chrome browser scroll bar
-// var chromeScrollBarWidth = 17;
-
-// //random x velocity within a specified range
-// var dx = (Math.random() - .5) * 16;
-
-// //random y velocity within a specified range
-// var dy = (Math.random() - .5) * 16;
-
 //array for circle objects
 var circleArray = [];
 
@@ -108,12 +92,14 @@ for (var i=0; i<150;i++){
     var y = Math.random() * (canvas.height - (radius *2 + chromeScrollBarWidth)) + radius;
 
 
-    //random x velocity within a specified range
+    //random x velocity within a specified range - positive or negative values
     var dx = (Math.random() - .5) * 16;
 
-    //random y velocity within a specified range
+    //random y velocity within a specified range - positive or negative values
     var dy = (Math.random() - .5) * 16;
 
+
+    //add a new random circle object to the array
     circleArray.push(new Circle(x,y,dx,dy,radius));
     console.log(circleArray);
 }
@@ -130,32 +116,9 @@ function animate(){
     //looping through each circle object in the circle array and updating its position and then redrawing it
     for (var i=0;i<circleArray.length;i++){
         circleArray[i].update();
-      
     }
     
 }
-    // //draw the circle
-    // c.beginPath();
-    // c.arc(x,y,radius,0, Math.PI *2,false);
-    //     c.fillStyle="blue";
-    //     c.fill();
 
-    // //conditional for reversing x velocity
-    // if (x + radius + chromeScrollBarWidth >= canvas.width || x - radius  <= 0){
-    //     dx = -dx;
-    // }
-    
-    // //conditional for reversing y velocity
-    // if (y - radius <= 0 || y + radius + chromeScrollBarWidth >= canvas.height){
-    //     dy =-dy;
-    // }
-    
-    // //move the circle one pixel to the right or left every frame refresh based on whether dx is postive or negative
-    // x += dx;
-    
-    // //move the circle one pixel to the top or bottom every frame refresh based on whether dy is postive or negative
-    // y += dy;
-
-
-//call the function which calls the special animation function within its body
+//animate function is called
 animate();
